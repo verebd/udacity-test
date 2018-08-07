@@ -1,0 +1,60 @@
+[
+  {
+    "description": "    As a user\n    I want to search in the Udacity program catalog\n    so that I can choose the proper course",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Browsing the Udacity program catalog",
+    "tags": [],
+    "uri": "E:\\Repositories\\udacity-test\\e2e\\features\\Udacity.feature",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "1. The user should be able to open the course page",
+        "tags": [],
+        "id": "browsing-the-udacity-program-catalog;1.-the-user-should-be-able-to-open-the-course-page",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "the Udacity course page is opened",
+            "result": {
+              "status": "passed",
+              "duration": 6003
+            },
+            "line": 7,
+            "match": {
+              "location": "E:\\Repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "the Udacity logo should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 39
+            },
+            "line": 8,
+            "match": {
+              "location": "E:\\Repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:13"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            },
+            "hidden": true,
+            "match": {
+              "location": "E:\\Repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
+            }
+          }
+        ]
+      }
+    ],
+    "id": "browsing-the-udacity-program-catalog"
+  }
+]
