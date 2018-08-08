@@ -4,13 +4,14 @@ class ProgramCatalog {
 
     constructor() {
         this.logo = element(by.css('.header__navbar--logo'));
-        this.searchBar = element(by.css('.col-sm-12'));
+        this.searchBar = element(by.css('.adjust-search input'));
         this.courseCount = null;
     }
 
     load() {
         browser.get('https://eu.udacity.com/courses/all');
-        return this.waitForLogo();
+        this.waitForLogo();
+        return browser.sleep(3000);
     }
 
     isLogoVisible() {
@@ -27,11 +28,12 @@ class ProgramCatalog {
         return this.searchBar.isVisible();
     }
 
-    allCourse() {
-        browser.sleep(5000).then(element.all(by.css('.card__inner')).count().then(function(count) {
-            this.courseCount = count;
-            console.log(this.courseCount);
-          }));
+    countCourses() {
+        return element.all(by.css('.card__inner')).count();
+    }
+
+    getPlaceholderText() {
+        return this.searchBar.getAttribute('placeholder');
     }
 }
 

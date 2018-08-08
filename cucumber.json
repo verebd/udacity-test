@@ -20,7 +20,7 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 11252
+              "duration": 7781
             },
             "line": 7,
             "match": {
@@ -33,7 +33,7 @@
             "name": "the Udacity logo should be visible",
             "result": {
               "status": "passed",
-              "duration": 85
+              "duration": 44
             },
             "line": 8,
             "match": {
@@ -46,7 +46,7 @@
             "name": "the search bar should be visible",
             "result": {
               "status": "passed",
-              "duration": 61
+              "duration": 60
             },
             "line": 9,
             "match": {
@@ -56,23 +56,10 @@
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "the placeholder should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 0
-            },
-            "line": 10,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:21"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
             "name": "the placeholder text should be 'Search'",
             "result": {
               "status": "passed",
-              "duration": 1
+              "duration": 22
             },
             "line": 11,
             "match": {
@@ -85,7 +72,7 @@
             "name": "the course count is remembered",
             "result": {
               "status": "passed",
-              "duration": 1
+              "duration": 38
             },
             "line": 13,
             "match": {
@@ -112,15 +99,6 @@
           },
           {
             "arguments": [],
-            "keyword": "And ",
-            "name": "the placeholder should be hidden",
-            "result": {
-              "status": "undefined"
-            },
-            "line": 16
-          },
-          {
-            "arguments": [],
             "keyword": "When ",
             "name": "the search bar is cleared",
             "result": {
@@ -130,19 +108,10 @@
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "name": "the placeholder text should be visible",
-            "result": {
-              "status": "undefined"
-            },
-            "line": 19
-          },
-          {
-            "arguments": [],
             "keyword": "After",
             "result": {
               "status": "passed",
-              "duration": 2
+              "duration": 1
             },
             "hidden": true,
             "match": {

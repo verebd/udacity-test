@@ -18,15 +18,17 @@ defineSupportCode(({Given, When, Then, setDefaultTimeout}) => {
         return expect(ProgramCatalog.isSearchBarVisible()).to.eventually.equal(visibility === 'visible');
     });
 
-    Then(/^the placeholder should be visible$/, () => {
+   /*Then(/^the placeholder should be visible$/, () => {
 
-    });
+    });*/
 
     Then(/^the placeholder text should be 'Search'$/, () => {
-
+        return expect(ProgramCatalog.getPlaceholderText()).to.eventually.equal('Search');
     });
 
     When(/^the course count is remembered$/, () => {
-        return ProgramCatalog.allCourse();
+        return ProgramCatalog.countCourses().then(count => {
+            ProgramCatalog.courseCount = count;
+        });
     });
 });
