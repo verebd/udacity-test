@@ -13,4 +13,20 @@ defineSupportCode(({Given, When, Then, setDefaultTimeout}) => {
     Then(/^the Udacity logo should be (visible|hidden)$/, visibility => {
         return expect(ProgramCatalog.isLogoVisible()).to.eventually.equal(visibility === 'visible');
     });
+
+    Then(/^the search bar should be (visible|hidden)$/, visibility => {
+        return expect(ProgramCatalog.isSearchBarVisible()).to.eventually.equal(visibility === 'visible');
+    });
+
+    Then(/^the placeholder should be visible$/, () => {
+
+    });
+
+    Then(/^the placeholder text should be 'Search'$/, () => {
+
+    });
+
+    When(/^the course count is remembered$/, () => {
+        return ProgramCatalog.allCourse();
+    });
 });

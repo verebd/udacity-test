@@ -5,14 +5,14 @@
     "line": 1,
     "name": "Browsing the Udacity program catalog",
     "tags": [],
-    "uri": "E:\\Repositories\\udacity-test\\e2e\\features\\Udacity.feature",
+    "uri": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\features\\Udacity.feature",
     "elements": [
       {
         "keyword": "Scenario",
         "line": 6,
-        "name": "1. The user should be able to open the course page",
+        "name": "1. The user should be able to use the search bar",
         "tags": [],
-        "id": "browsing-the-udacity-program-catalog;1.-the-user-should-be-able-to-open-the-course-page",
+        "id": "browsing-the-udacity-program-catalog;1.-the-user-should-be-able-to-use-the-search-bar",
         "steps": [
           {
             "arguments": [],
@@ -20,11 +20,11 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 6003
+              "duration": 11252
             },
             "line": 7,
             "match": {
-              "location": "E:\\Repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:9"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:9"
             }
           },
           {
@@ -33,23 +33,120 @@
             "name": "the Udacity logo should be visible",
             "result": {
               "status": "passed",
-              "duration": 39
+              "duration": 85
             },
             "line": 8,
             "match": {
-              "location": "E:\\Repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:13"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:13"
             }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the search bar should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 61
+            },
+            "line": 9,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:17"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the placeholder should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            },
+            "line": 10,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the placeholder text should be 'Search'",
+            "result": {
+              "status": "passed",
+              "duration": 1
+            },
+            "line": 11,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:25"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "the course count is remembered",
+            "result": {
+              "status": "passed",
+              "duration": 1
+            },
+            "line": 13,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:29"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the text 'android' is typed into the search bar",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 14
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "the course count should be less than the remembered course count",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 15
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the placeholder should be hidden",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 16
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "the search bar is cleared",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 18
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "the placeholder text should be visible",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 19
           },
           {
             "arguments": [],
             "keyword": "After",
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 2
             },
             "hidden": true,
             "match": {
-              "location": "E:\\Repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
             }
           }
         ]
