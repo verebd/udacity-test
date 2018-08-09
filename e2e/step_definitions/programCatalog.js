@@ -25,7 +25,7 @@ defineSupportCode(({
         return expect(ProgramCatalog.isSearchBarVisible()).to.eventually.equal(visibility === 'visible');
     });
 
-    Then(/^the placeholder text should be "(.*)"$/, text => {
+    Then(/^the placeholder text should be "([^"].*)"$/, text => {
         return expect(ProgramCatalog.getPlaceholderText()).to.eventually.equal(text);
     });
 
@@ -35,7 +35,7 @@ defineSupportCode(({
         });
     });
 
-    Then(/^the text "(.*)" is typed into the search bar$/, text => {
+    Then(/^the text "([^"].*)" is typed into the search bar$/, text => {
         return ProgramCatalog.typeIntoSearchBar(text);
     });
 
