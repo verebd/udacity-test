@@ -14,20 +14,21 @@ Scenario: 1. The user should be able to use the search bar
    Then the course count should be less than the remembered course count
 
    When the search bar is cleared
-   Then the course count should be equal to the remembered course count
+   Then the course count should equal to the remembered course count
 
 Scenario: 2. The card details and the filter fields should work correctly
   Given the Udacity course page is opened
     
    When the text "javascript" is typed into the search bar
-   Then the selected filters field should contain the "javascript" text
-    And the course count should be equal to the number of the courses that visible
+   Then the selected filters field should contain the filter "javascript"
+    And The course count should equal to the result counter
 
 Scenario: 3. The card details, dropdown filter and filter fields should work correctly
   Given the Udacity course page is opened
 
    When the "Select Program Details" dropdown is clicked
     And the "Intermediate" skill level is selected
-   Then the selected filters field should contain the "Intermediate" text
-    And the course count should be equal to the number of the courses that visible
-    And the course level logo and the "Intermediate" label should be visible
+   Then the selected filters field should contain the filter "Intermediate"
+    And The course count should equal to the result counter
+    And the course level logo should be visible
+    And the "Intermediate" course level label should be visible
