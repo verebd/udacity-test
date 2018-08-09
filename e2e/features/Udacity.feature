@@ -21,7 +21,7 @@ Scenario: 2. The card details and the filter fields should work correctly
     
    When the text "javascript" is typed into the search bar
    Then the selected filters field should contain the filter "javascript"
-    And The course count should equal to the result counter
+    And the course count should equal to the result counter
 
 Scenario: 3. The card details, dropdown filter and filter fields should work correctly
   Given the Udacity course page is opened
@@ -29,6 +29,6 @@ Scenario: 3. The card details, dropdown filter and filter fields should work cor
    When the "Select Program Details" dropdown is clicked
     And the "Intermediate" skill level is selected
    Then the selected filters field should contain the filter "Intermediate"
-    And The course count should equal to the result counter
+    And the course count should equal to the result counter
     And the course level logo should be visible
     And the "Intermediate" course level label should be visible
