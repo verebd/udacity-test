@@ -6,6 +6,7 @@ class ProgramCatalog {
         this.logo = element(by.css('.header__navbar--logo'));
         this.searchBar = element(by.css('.adjust-search input'));
         this.card = element.all(by.css('.card__inner'));
+        this.selectedFiltersField = element(by.css('.filters'));
         this.courseCount = null;
     }
 
