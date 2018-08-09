@@ -8,7 +8,7 @@ Scenario: 1. The user should be able to use the search bar
    Then the Udacity logo should be visible
     And the search bar should be visible
     #And the placeholder should be visible
-    And the placeholder text should be 'Search'
+    And the placeholder text should be "Search"
 
    When the course count is remembered
     And the text 'android' is typed into the search bar

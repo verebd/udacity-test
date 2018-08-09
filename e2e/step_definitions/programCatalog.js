@@ -22,8 +22,8 @@ defineSupportCode(({Given, When, Then, setDefaultTimeout}) => {
 
     });*/
 
-    Then(/^the placeholder text should be 'Search'$/, () => {
-        return expect(ProgramCatalog.getPlaceholderText()).to.eventually.equal('Search');
+    Then(/^the placeholder text should be "(.*)"$/, function (text) {
+        return expect(ProgramCatalog.getPlaceholderText()).to.eventually.equal(text);
     });
 
     When(/^the course count is remembered$/, () => {

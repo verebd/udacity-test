@@ -20,7 +20,7 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 7781
+              "duration": 7246
             },
             "line": 7,
             "match": {
@@ -33,7 +33,7 @@
             "name": "the Udacity logo should be visible",
             "result": {
               "status": "passed",
-              "duration": 44
+              "duration": 66
             },
             "line": 8,
             "match": {
@@ -46,7 +46,7 @@
             "name": "the search bar should be visible",
             "result": {
               "status": "passed",
-              "duration": 60
+              "duration": 65
             },
             "line": 9,
             "match": {
@@ -56,10 +56,10 @@
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "the placeholder text should be 'Search'",
+            "name": "the placeholder text should be \"Search\"",
             "result": {
               "status": "passed",
-              "duration": 22
+              "duration": 19
             },
             "line": 11,
             "match": {
