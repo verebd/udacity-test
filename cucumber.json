@@ -20,11 +20,11 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 7246
+              "duration": 8990
             },
             "line": 7,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:9"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
             }
           },
           {
@@ -33,11 +33,11 @@
             "name": "the Udacity logo should be visible",
             "result": {
               "status": "passed",
-              "duration": 66
+              "duration": 63
             },
             "line": 8,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:13"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:20"
             }
           },
           {
@@ -46,11 +46,11 @@
             "name": "the search bar should be visible",
             "result": {
               "status": "passed",
-              "duration": 65
+              "duration": 61
             },
             "line": 9,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:17"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:24"
             }
           },
           {
@@ -59,11 +59,11 @@
             "name": "the placeholder text should be \"Search\"",
             "result": {
               "status": "passed",
-              "duration": 19
+              "duration": 22
             },
-            "line": 11,
+            "line": 10,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:25"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:28"
             }
           },
           {
@@ -72,46 +72,71 @@
             "name": "the course count is remembered",
             "result": {
               "status": "passed",
-              "duration": 38
+              "duration": 40
             },
-            "line": 13,
+            "line": 12,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:29"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:32"
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "the text 'android' is typed into the search bar",
+            "name": "the text \"android\" is typed into the search bar",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 334
             },
-            "line": 14
+            "line": 13,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:38"
+            }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "name": "the course count should be less than the remembered course count",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 2033
             },
-            "line": 15
+            "line": 14,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:42"
+            }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "name": "the search bar is cleared",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 5126
             },
-            "line": 18
+            "line": 16,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:52"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "the course count should be equal to the remembered course count",
+            "result": {
+              "status": "passed",
+              "duration": 2039
+            },
+            "line": 17,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:42"
+            }
           },
           {
             "arguments": [],
             "keyword": "After",
             "result": {
               "status": "passed",
-              "duration": 1
+              "duration": 0
             },
             "hidden": true,
             "match": {

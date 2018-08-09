@@ -12,7 +12,7 @@ class ProgramCatalog {
     load() {
         browser.get('https://eu.udacity.com/courses/all');
         this.waitForLogo();
-        return browser.sleep(3000);
+        return browser.sleep(5000);
     }
 
     isLogoVisible() {
@@ -35,6 +35,15 @@ class ProgramCatalog {
 
     getPlaceholderText() {
         return this.searchBar.getAttribute('placeholder');
+    }
+
+    typeIntoSearchBar(text) {
+        return this.searchBar.sendKeys(text);
+    }
+
+    clearSearchBar() {
+        this.searchBar.sendKeys(protractor.Key.chord(protractor.Key.CONTROL,"a"));
+        return this.searchBar.sendKeys(protractor.Key.BACK_SPACE);
     }
 }
 
