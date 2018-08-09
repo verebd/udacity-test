@@ -53,4 +53,16 @@ defineSupportCode(({
                 return expect(ProgramCatalog.countCourses()).to.eventually.equal(ProgramCatalog.courseCount);
         }
     });
+
+    Then(/^the selected filters field should contain the following filters:$/, filters => {
+        let filtersArray = filters.raw()[0];
+        return expect(ProgramCatalog.selectedFilters()).to.eventually.eql(filtersArray);
+    });
+
+    Then(/^the course count should equal to the result counter$/, () => {
+        return ProgramCatalog.countCourses().then( courseCount => {
+            return expect(ProgramCatalog.getResultCounter()).to.eventually.equal(courseCount);
+        });
+    });
+
 });

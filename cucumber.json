@@ -9,144 +9,6 @@
     "elements": [
       {
         "keyword": "Scenario",
-        "line": 6,
-        "name": "1. The user should be able to use the search bar",
-        "tags": [],
-        "id": "browsing-the-udacity-program-catalog;1.-the-user-should-be-able-to-use-the-search-bar",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "name": "the Udacity course page is opened",
-            "result": {
-              "status": "passed",
-              "duration": 8913
-            },
-            "line": 7,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "name": "the Udacity logo should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 78
-            },
-            "line": 8,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:31"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the search bar should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 62
-            },
-            "line": 9,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:35"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the placeholder text should be \"Search\"",
-            "result": {
-              "status": "passed",
-              "duration": 20
-            },
-            "line": 10,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:39"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "name": "the course count is remembered",
-            "result": {
-              "status": "passed",
-              "duration": 36
-            },
-            "line": 12,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:20"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the text \"android\" is typed into the search bar",
-            "result": {
-              "status": "passed",
-              "duration": 328
-            },
-            "line": 13,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:43"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "name": "the course count should be less than the remembered course count",
-            "result": {
-              "status": "passed",
-              "duration": 2030
-            },
-            "line": 14,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:47"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "name": "the search bar is cleared",
-            "result": {
-              "status": "passed",
-              "duration": 5127
-            },
-            "line": 16,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:26"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "name": "the course count should be equal to the remembered course count",
-            "result": {
-              "status": "passed",
-              "duration": 2030
-            },
-            "line": 17,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:47"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "After",
-            "result": {
-              "status": "passed",
-              "duration": 16
-            },
-            "hidden": true,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
-            }
-          }
-        ]
-      },
-      {
-        "keyword": "Scenario",
         "line": 19,
         "name": "2. The card details and the filter fields should work correctly",
         "tags": [],
@@ -158,7 +20,7 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 6744
+              "duration": 10877
             },
             "line": 20,
             "match": {
@@ -171,35 +33,48 @@
             "name": "the text \"javascript\" is typed into the search bar",
             "result": {
               "status": "passed",
-              "duration": 455
+              "duration": 3485
             },
             "line": 22,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:43"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:47"
             }
           },
           {
-            "arguments": [],
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "javascript"
+                    ]
+                  }
+                ]
+              }
+            ],
             "keyword": "Then ",
-            "name": "the selected filters field should contain the \"javascript\" text",
+            "name": "the selected filters field should contain the following filters:",
             "result": {
-              "status": "failed",
-              "duration": 1,
-              "error_message": "TypeError: this.selectedFiltersField.cssContainingText is not a function\n    at ProgramCatalog.selectedFiltersFieldContain (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\page_objects\\programCatalog.js:51:42)\n    at World.text (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:59:31)"
+              "status": "passed",
+              "duration": 57
             },
-            "line": 23,
+            "line": 24,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:57"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:61"
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "the course count should be equal to the number of the courses that visible",
+            "name": "the course count should equal to the result counter",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 56
             },
-            "line": 24
+            "line": 26,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:65"
+            }
           },
           {
             "arguments": [],
@@ -207,88 +82,6 @@
             "result": {
               "status": "passed",
               "duration": 1
-            },
-            "hidden": true,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
-            }
-          }
-        ]
-      },
-      {
-        "keyword": "Scenario",
-        "line": 26,
-        "name": "3.",
-        "tags": [],
-        "id": "browsing-the-udacity-program-catalog;3.",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "name": "the Udacity course page is opened",
-            "result": {
-              "status": "passed",
-              "duration": 6738
-            },
-            "line": 27,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "name": "the \"Select Program Details\" dropdown is clicked",
-            "result": {
-              "status": "undefined"
-            },
-            "line": 29
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the \"Intermediate\" skill level is selected",
-            "result": {
-              "status": "undefined"
-            },
-            "line": 30
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "name": "the selected filters field should contain the \"Intermediate\" text",
-            "result": {
-              "status": "skipped"
-            },
-            "line": 31,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:57"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the course count should be equal to the number of the courses that visible",
-            "result": {
-              "status": "undefined"
-            },
-            "line": 32
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the course level logo and the \"Intermediate\" label should be visible",
-            "result": {
-              "status": "undefined"
-            },
-            "line": 33
-          },
-          {
-            "arguments": [],
-            "keyword": "After",
-            "result": {
-              "status": "passed",
-              "duration": 0
             },
             "hidden": true,
             "match": {
