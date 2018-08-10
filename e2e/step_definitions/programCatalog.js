@@ -28,6 +28,11 @@ defineSupportCode(({
         return browser.sleep(5000);
     });
 
+    When(/^the "([^"].*)" dropdown is clicked$/, text => {
+        ProgramCatalog.openFilterDropdown(text);
+        return browser.sleep(2000);
+    });
+
     Then(/^the Udacity logo should be (visible|hidden)$/, visibility => {
         return expect(ProgramCatalog.isLogoVisible()).to.eventually.equal(visibility === 'visible');
     });
@@ -63,6 +68,15 @@ defineSupportCode(({
         return ProgramCatalog.countCourses().then( courseCount => {
             return expect(ProgramCatalog.getResultCounter()).to.eventually.equal(courseCount);
         });
+    });
+
+    Then(/^the "([^"].*)" skill level is selected$/, text => {
+       ProgramCatalog.clickOnFilter(text);
+       return browser.sleep(3000);
+    });
+
+    Then(/^the (.*) course level logo should be visible for all cards$/, text => {
+        return expect(ProgramCatalog.areCourseLevelLogosCorrect(text)).to.eventually.be.true;
     });
 
 });

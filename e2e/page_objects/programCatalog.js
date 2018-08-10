@@ -5,9 +5,13 @@ class ProgramCatalog {
     constructor() {
         this.logo = element(by.css('.header__navbar--logo'));
         this.searchBar = element(by.css('.adjust-search input'));
-        this.card = element.all(by.css('.card__inner'));
+        this.cards = element.all(by.css('.card__inner'));
         this.selectedFiltersField = element.all(by.css('.filters'));
         this.resultCounter = element(by.css('.result-count'));
+        this.dropdownSelector = text => element(by.cssContainingText('.multiselect-dropdown', text));
+        this.dropdownFilterSelector = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
+        this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
+        this.dropdownSelectorisVisible = element(by.css('.dropdown-list'));
         this.courseCount = null;
     }
 
@@ -32,7 +36,7 @@ class ProgramCatalog {
     }
 
     countCourses() {
-        return this.card.count();
+        return this.cards.count();
     }
 
     getPlaceholderText() {
@@ -45,7 +49,7 @@ class ProgramCatalog {
     }
 
     clearSearchBar() {
-        this.searchBar.sendKeys(protractor.Key.chord(protractor.Key.CONTROL,"a"));
+        this.searchBar.sendKeys(protractor.Key.chord(protractor.Key.CONTROL, "a"));
         return this.searchBar.sendKeys(protractor.Key.BACK_SPACE);
     }
 
@@ -54,13 +58,32 @@ class ProgramCatalog {
     }
 
     getResultCounter() {
-       return this.resultCounter.getText().then( text => {
-           let regex = /Results? \((\d+)\)/;
-           let token = text.match(regex);
-           return +token[1];
-       });
+        return this.resultCounter.getText().then(text => {
+            let regex = /Results? \((\d+)\)/;
+            let token = text.match(regex);
+            return +token[1];
+        });
     }
 
+    openFilterDropdown(text) {
+            return this.dropdownSelector(text).click();
+    }
+
+    clickOnFilter(text) {
+        return this.dropdownFilterSelector(text).click();
+    }
+
+    areCourseLevelLogosCorrect(level) {
+        return this.cards.then(cards => {
+            return Promise.all(cards.map(card => {
+                return this.courseLevelLogo(card).getAttribute('class');
+            })).then(results => {
+                return results.every(result => {
+                    return result.indexOf(level) > -1;
+                });
+            });
+        });
+    }
 }
 
 module.exports = new ProgramCatalog();

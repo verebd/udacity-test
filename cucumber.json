@@ -9,10 +9,10 @@
     "elements": [
       {
         "keyword": "Scenario",
-        "line": 19,
-        "name": "2. The card details and the filter fields should work correctly",
+        "line": 30,
+        "name": "3. The card details, dropdown filter and filter fields should work correctly",
         "tags": [],
-        "id": "browsing-the-udacity-program-catalog;2.-the-card-details-and-the-filter-fields-should-work-correctly",
+        "id": "browsing-the-udacity-program-catalog;3.-the-card-details,-dropdown-filter-and-filter-fields-should-work-correctly",
         "steps": [
           {
             "arguments": [],
@@ -20,9 +20,9 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 10877
+              "duration": 10324
             },
-            "line": 20,
+            "line": 31,
             "match": {
               "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
             }
@@ -30,14 +30,27 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "the text \"javascript\" is typed into the search bar",
+            "name": "the \"Select Program Details\" dropdown is clicked",
             "result": {
               "status": "passed",
-              "duration": 3485
+              "duration": 2178
             },
-            "line": 22,
+            "line": 33,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:47"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"Intermediate\" skill level is selected",
+            "result": {
+              "status": "passed",
+              "duration": 3288
+            },
+            "line": 34,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:73"
             }
           },
           {
@@ -46,7 +59,7 @@
                 "rows": [
                   {
                     "cells": [
-                      "javascript"
+                      "Intermediate"
                     ]
                   }
                 ]
@@ -56,25 +69,34 @@
             "name": "the selected filters field should contain the following filters:",
             "result": {
               "status": "passed",
-              "duration": 57
+              "duration": 48
             },
-            "line": 24,
+            "line": 35,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:61"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:62"
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "the course count should equal to the result counter",
+            "name": "the intermediate course level logo should be visible for all cards",
             "result": {
               "status": "passed",
-              "duration": 56
+              "duration": 2881
             },
-            "line": 26,
+            "line": 38,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:65"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:78"
             }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"Intermediate\" course level label should be visible for all cards",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 39
           },
           {
             "arguments": [],
