@@ -9,10 +9,10 @@
     "elements": [
       {
         "keyword": "Scenario",
-        "line": 6,
-        "name": "1. The user should be able to use the search bar",
+        "line": 28,
+        "name": "3. The card details, dropdown filter and filter fields should work correctly",
         "tags": [],
-        "id": "browsing-the-udacity-program-catalog;1.-the-user-should-be-able-to-use-the-search-bar",
+        "id": "browsing-the-udacity-program-catalog;3.-the-card-details,-dropdown-filter-and-filter-fields-should-work-correctly",
         "steps": [
           {
             "arguments": [],
@@ -20,115 +20,86 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 8990
+              "duration": 12005
             },
-            "line": 7,
+            "line": 29,
             "match": {
               "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "name": "the Udacity logo should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 63
-            },
-            "line": 8,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:20"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the search bar should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 61
-            },
-            "line": 9,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:24"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the placeholder text should be \"Search\"",
-            "result": {
-              "status": "passed",
-              "duration": 22
-            },
-            "line": 10,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:28"
-            }
-          },
-          {
-            "arguments": [],
             "keyword": "When ",
-            "name": "the course count is remembered",
+            "name": "the \"Select Program Details\" dropdown is clicked",
             "result": {
               "status": "passed",
-              "duration": 40
+              "duration": 1103
             },
-            "line": 12,
+            "line": 31,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:32"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:31"
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "the text \"android\" is typed into the search bar",
+            "name": "the \"Intermediate\" skill level is selected",
             "result": {
               "status": "passed",
-              "duration": 334
+              "duration": 3349
             },
-            "line": 13,
+            "line": 32,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:38"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:72"
             }
           },
           {
-            "arguments": [],
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Intermediate"
+                    ]
+                  }
+                ]
+              }
+            ],
             "keyword": "Then ",
-            "name": "the course count should be less than the remembered course count",
+            "name": "the selected filters field should contain the following filters:",
             "result": {
               "status": "passed",
-              "duration": 2033
+              "duration": 43
             },
-            "line": 14,
+            "line": 33,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:42"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:61"
             }
           },
           {
             "arguments": [],
-            "keyword": "When ",
-            "name": "the search bar is cleared",
+            "keyword": "And ",
+            "name": "the intermediate course level logo should be visible for all cards",
             "result": {
               "status": "passed",
-              "duration": 5126
+              "duration": 2555
             },
-            "line": 16,
+            "line": 35,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:52"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:77"
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "name": "the course count should be equal to the remembered course count",
+            "keyword": "And ",
+            "name": "the \"Intermediate\" course level label should be visible for all cards",
             "result": {
               "status": "passed",
-              "duration": 2039
+              "duration": 3916
             },
-            "line": 17,
+            "line": 36,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:42"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:81"
             }
           },
           {
