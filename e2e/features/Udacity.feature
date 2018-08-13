@@ -48,4 +48,9 @@ Scenario: 4. The LEARN MORE button and short description should be visible
    Then short description should be visible
     And 'LEARN MORE' button should be visible
 
-Scenario: 5.   
+Scenario: 5. Alternative course opening should work correctly
+  Given the Udacity course page is opened
+
+   When the text "javascript" is typed into the search bar
+    And the "Intro To JavaScript" course card is clicked
+   Then the opened page's title should be "Intro To JavaScript"
