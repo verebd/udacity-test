@@ -20,7 +20,7 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 10603
+              "duration": 10420
             },
             "line": 31,
             "match": {
@@ -33,7 +33,7 @@
             "name": "the \"Select Program Details\" dropdown is clicked",
             "result": {
               "status": "passed",
-              "duration": 2103
+              "duration": 2295
             },
             "line": 33,
             "match": {
@@ -46,7 +46,7 @@
             "name": "the \"Intermediate\" skill level is selected",
             "result": {
               "status": "passed",
-              "duration": 3299
+              "duration": 3354
             },
             "line": 34,
             "match": {
@@ -69,7 +69,7 @@
             "name": "the selected filters field should contain the following filters:",
             "result": {
               "status": "passed",
-              "duration": 55
+              "duration": 35
             },
             "line": 35,
             "match": {
@@ -82,7 +82,7 @@
             "name": "the intermediate course level logo should be visible for all cards",
             "result": {
               "status": "passed",
-              "duration": 2490
+              "duration": 2477
             },
             "line": 38,
             "match": {
@@ -94,16 +94,20 @@
             "keyword": "And ",
             "name": "the \"Intermediate\" course level label should be visible for all cards",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 3693
             },
-            "line": 39
+            "line": 39,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:82"
+            }
           },
           {
             "arguments": [],
             "keyword": "After",
             "result": {
               "status": "passed",
-              "duration": 16
+              "duration": 0
             },
             "hidden": true,
             "match": {

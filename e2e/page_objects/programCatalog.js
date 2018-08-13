@@ -12,6 +12,7 @@ class ProgramCatalog {
         this.dropdownFilterSelector = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.dropdownSelectorisVisible = element(by.css('.dropdown-list'));
+        this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
         this.courseCount = null;
     }
 
@@ -87,6 +88,24 @@ class ProgramCatalog {
             })).then(results => {
                 return results.every(result => {
                     return result.indexOf(level) > -1;
+                });
+            });
+        });
+    }
+
+    correctCourseLevelTextIsVisible(level) {
+        return this.cards.then(cards => {
+            return Promise.all(cards.map(card => {
+                return this.courseLevelText(card).getText();
+            })).then(results => {
+                return results.every(result => {
+                    let asd = result.localeCompare(level);
+                    if (asd === 0) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 });
             });
         });

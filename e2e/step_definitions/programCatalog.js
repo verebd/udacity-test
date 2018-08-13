@@ -79,4 +79,8 @@ defineSupportCode(({
         return expect(ProgramCatalog.areCourseLevelLogosCorrect(text)).to.eventually.be.true;
     });
 
+    Then(/^the "([^"].*)" course level label should be visible for all cards$/, (level) => {
+        return expect(ProgramCatalog.correctCourseLevelTextIsVisible(level)).to.eventually.be.true;
+    });
+
 });
