@@ -5,18 +5,18 @@ class ProgramCatalog {
     constructor() {
         this.logo = element(by.css('.header__navbar--logo'));
         this.searchBar = element(by.css('.adjust-search input'));
-        this.resultCounter = element(by.css('.result-count'));
-        this.dropdownList = element(by.css('.dropdown-list'));
+        this.resultCounter = element(by.css('.result-count'));        
 
         this.cards = element.all(by.css('.card__inner'));
         this.selectedFiltersField = element.all(by.css('.filters'));
 
-        this.dropdownSelector = text => element(by.cssContainingText('.multiselect-dropdown', text));
-        this.dropdownFilterSelector = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
+        this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
+        this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
+        this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
-        
+
         this.courseCount = null;
     }
 
@@ -70,27 +70,27 @@ class ProgramCatalog {
         });
     }
 
-    isDropdownFilterVisible() {
-        return this.dropdownList.isVisible();
+    isDropdownFilterVisible(text) {
+        return this.dropdownList(text).isVisible();
     }
 
-    waitForDropdownList() {
+    waitForDropdownList(text) {
             browser.wait(() => {
-                return this.isDropdownFilterVisible();
+                return this.isDropdownFilterVisible(text);
             });
     }
 
     openFilterDropdown(text) {
-        return this.isDropdownFilterVisible().then(visible => {
+        return this.isDropdownFilterVisible(text).then(visible => {
             if (!visible){
-                this.dropdownSelector(text).click();
-                return this.waitForDropdownList();
+                this.filterBox(text).click();
+                return this.waitForDropdownList(text);
             }
         });
     }
 
     clickOnFilter(text) {
-        return this.dropdownFilterSelector(text).click();
+        return this.filterOption(text).click();
     }
 
     areCourseLevelLogosCorrect(level) {

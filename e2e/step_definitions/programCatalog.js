@@ -48,10 +48,10 @@ defineSupportCode(({
         return ProgramCatalog.typeIntoSearchBar(text);
     });
 
-    Then(/^the course count should (less than|equal to) the remembered course count$/, condition => {
+    Then(/^the course count should (be less than|equal to) the remembered course count$/, condition => {
         browser.sleep(2000);
         switch (condition) {
-            case "less than":
+            case "be less than":
                 return expect(ProgramCatalog.countCourses()).to.be.eventually.at.most(ProgramCatalog.courseCount);
             case "equal to":
                 return expect(ProgramCatalog.countCourses()).to.eventually.equal(ProgramCatalog.courseCount);
