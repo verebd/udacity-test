@@ -20,7 +20,7 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 10324
+              "duration": 10603
             },
             "line": 31,
             "match": {
@@ -33,7 +33,7 @@
             "name": "the \"Select Program Details\" dropdown is clicked",
             "result": {
               "status": "passed",
-              "duration": 2178
+              "duration": 2103
             },
             "line": 33,
             "match": {
@@ -46,7 +46,7 @@
             "name": "the \"Intermediate\" skill level is selected",
             "result": {
               "status": "passed",
-              "duration": 3288
+              "duration": 3299
             },
             "line": 34,
             "match": {
@@ -69,7 +69,7 @@
             "name": "the selected filters field should contain the following filters:",
             "result": {
               "status": "passed",
-              "duration": 48
+              "duration": 55
             },
             "line": 35,
             "match": {
@@ -82,7 +82,7 @@
             "name": "the intermediate course level logo should be visible for all cards",
             "result": {
               "status": "passed",
-              "duration": 2881
+              "duration": 2490
             },
             "line": 38,
             "match": {
@@ -103,7 +103,7 @@
             "keyword": "After",
             "result": {
               "status": "passed",
-              "duration": 1
+              "duration": 16
             },
             "hidden": true,
             "match": {

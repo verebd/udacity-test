@@ -66,7 +66,14 @@ class ProgramCatalog {
     }
 
     openFilterDropdown(text) {
-            return this.dropdownSelector(text).click();
+        return this.dropdownSelectorisVisible.isVisible().then(value => {
+            if (value === false){
+                return this.dropdownSelector(text).click();
+            }
+            else {
+                return false;
+            }
+        });
     }
 
     clickOnFilter(text) {
