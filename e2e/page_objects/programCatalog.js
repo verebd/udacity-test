@@ -5,14 +5,18 @@ class ProgramCatalog {
     constructor() {
         this.logo = element(by.css('.header__navbar--logo'));
         this.searchBar = element(by.css('.adjust-search input'));
+        this.resultCounter = element(by.css('.result-count'));
+        this.dropdownList = element(by.css('.dropdown-list'));
+
         this.cards = element.all(by.css('.card__inner'));
         this.selectedFiltersField = element.all(by.css('.filters'));
-        this.resultCounter = element(by.css('.result-count'));
+
         this.dropdownSelector = text => element(by.cssContainingText('.multiselect-dropdown', text));
         this.dropdownFilterSelector = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
+
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
-        this.dropdownSelectorisVisible = element(by.css('.dropdown-list'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
+        
         this.courseCount = null;
     }
 
@@ -66,13 +70,21 @@ class ProgramCatalog {
         });
     }
 
+    isDropdownFilterVisible() {
+        return this.dropdownList.isVisible();
+    }
+
+    waitForDropdownList() {
+            browser.wait(() => {
+                return this.isDropdownFilterVisible();
+            });
+    }
+
     openFilterDropdown(text) {
-        return this.dropdownSelectorisVisible.isVisible().then(value => {
-            if (value === false){
-                return this.dropdownSelector(text).click();
-            }
-            else {
-                return false;
+        return this.isDropdownFilterVisible().then(visible => {
+            if (!visible){
+                this.dropdownSelector(text).click();
+                return this.waitForDropdownList();
             }
         });
     }
@@ -93,19 +105,13 @@ class ProgramCatalog {
         });
     }
 
-    correctCourseLevelTextIsVisible(level) {
+    isCorrectCourseLevelTextVisible(level) {
         return this.cards.then(cards => {
             return Promise.all(cards.map(card => {
                 return this.courseLevelText(card).getText();
             })).then(results => {
                 return results.every(result => {
-                    let isEqual = result.localeCompare(level);
-                    if (isEqual === 0) {
-                        return true;
-                    }
-                    else {
-                        return false;
-                    }
+                    return result === level;
                 });
             });
         });

@@ -29,8 +29,7 @@ defineSupportCode(({
     });
 
     When(/^the "([^"].*)" dropdown is clicked$/, text => {
-        ProgramCatalog.openFilterDropdown(text);
-        return browser.sleep(2000);
+        return ProgramCatalog.openFilterDropdown(text);
     });
 
     Then(/^the Udacity logo should be (visible|hidden)$/, visibility => {
@@ -49,7 +48,7 @@ defineSupportCode(({
         return ProgramCatalog.typeIntoSearchBar(text);
     });
 
-    Then(/^the course count should be (less than|equal to) the remembered course count$/, condition => {
+    Then(/^the course count should (less than|equal to) the remembered course count$/, condition => {
         browser.sleep(2000);
         switch (condition) {
             case "less than":
@@ -79,8 +78,8 @@ defineSupportCode(({
         return expect(ProgramCatalog.areCourseLevelLogosCorrect(text)).to.eventually.be.true;
     });
 
-    Then(/^the "([^"].*)" course level label should be visible for all cards$/, (level) => {
-        return expect(ProgramCatalog.correctCourseLevelTextIsVisible(level)).to.eventually.be.true;
+    Then(/^the "([^"].*)" course level label should be visible for all cards$/, level => {
+        return expect(ProgramCatalog.isCorrectCourseLevelTextVisible(level)).to.eventually.be.true;
     });
 
 });

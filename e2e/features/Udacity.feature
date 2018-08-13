@@ -11,12 +11,11 @@ Scenario: 1. The user should be able to use the search bar
 
    When the course count is remembered
     And the text "android" is typed into the search bar
-   Then the course count should be less than the remembered course count
+   Then the course count should less than the remembered course count
 
    When the search bar is cleared
-   Then the course count should be equal to the remembered course count
+   Then the course count should equal to the remembered course count
    
-
 Scenario: 2. The card details and the filter fields should work correctly
   Given the Udacity course page is opened
     
