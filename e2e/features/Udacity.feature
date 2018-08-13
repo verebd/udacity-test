@@ -34,3 +34,10 @@ Scenario: 3. The card details, dropdown filter and filter fields should work cor
         |Intermediate|
     And the intermediate course level logo should be visible for all cards
     And the "Intermediate" course level label should be visible for all cards
+
+Scenario: 4. The card details expander should work correctly and LEARN MORE button should clickable 
+  Given the Udacity course page is opened
+
+  When the details expander is clicked
+  Then short description should be visible
+  And 'LEARN MORE' button should be visible
