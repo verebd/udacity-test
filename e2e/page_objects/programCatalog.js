@@ -99,8 +99,8 @@ class ProgramCatalog {
                 return this.courseLevelText(card).getText();
             })).then(results => {
                 return results.every(result => {
-                    let asd = result.localeCompare(level);
-                    if (asd === 0) {
+                    let isEqual = result.localeCompare(level);
+                    if (isEqual === 0) {
                         return true;
                     }
                     else {
