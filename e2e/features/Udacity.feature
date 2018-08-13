@@ -19,10 +19,16 @@ Scenario: 1. The user should be able to use the search bar
 Scenario: 2. The card details and the filter fields should work correctly
   Given the Udacity course page is opened
     
-   When the text "javascript" is typed into the search bar
+   When the course count is remembered
+    And the text "javascript" is typed into the search bar
    Then the selected filters field should contain the following filters:
         |javascript|
     And the course count should equal to the result counter
+
+   When the X filter closing button is clicked
+   Then the "Results" label should not be visible
+    And the characters should be removed automatically from the search bar
+    And the course count should equal to the remembered course count
 
 
 Scenario: 3. The card details, dropdown filter and filter fields should work correctly
@@ -35,9 +41,11 @@ Scenario: 3. The card details, dropdown filter and filter fields should work cor
     And the intermediate course level logo should be visible for all cards
     And the "Intermediate" course level label should be visible for all cards
 
-Scenario: 4. The card details expander should work correctly and LEARN MORE button should clickable 
+Scenario: 4. The LEARN MORE button and short description should be visible
   Given the Udacity course page is opened
 
-  When the details expander is clicked
-  Then short description should be visible
-  And 'LEARN MORE' button should be visible
+   When the details expander is clicked
+   Then short description should be visible
+    And 'LEARN MORE' button should be visible
+
+Scenario: 5.   
