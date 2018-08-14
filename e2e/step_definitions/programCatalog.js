@@ -64,14 +64,14 @@ defineSupportCode(({
     });
 
     Then(/^the course count should equal to the result counter$/, () => {
-        return ProgramCatalog.countCourses().then( courseCount => {
+        return ProgramCatalog.countCourses().then(courseCount => {
             return expect(ProgramCatalog.getResultCounter()).to.eventually.equal(courseCount);
         });
     });
 
     Then(/^the "([^"].*)" skill level is selected$/, text => {
-       ProgramCatalog.clickOnFilter(text);
-       return browser.sleep(3000);
+        ProgramCatalog.clickOnFilter(text);
+        return browser.sleep(3000);
     });
 
     Then(/^the (.*) course level logo should be visible for all cards$/, text => {
@@ -82,4 +82,19 @@ defineSupportCode(({
         return expect(ProgramCatalog.isCorrectCourseLevelTextVisible(level)).to.eventually.be.true;
     });
 
+    Then(/^the "([^"].*)" card's details expander is clicked$/, text => {
+        return ProgramCatalog.clickOnTheExpander(text);
+    });
+
+    Then(/^the "([^"].*)" card's short description should be visible$/, text => {
+        return expect(ProgramCatalog.isShortDescriptionVisible(text)).to.eventually.be.true;
+    });
+
+    Then(/^the "([^"].*)" card's short description is not an empty string$/, text => {
+        return expect(ProgramCatalog.isShortDescriptionNotEmpty(text)).to.eventually.be.true;
+    });
+
+    Then(/^the "([^"].*)" card's 'LEARN MORE' button should be visible$/, text => {
+        return expect(ProgramCatalog.isLearnMoreButtonVisible(text)).to.eventually.be.true;
+    });
 });

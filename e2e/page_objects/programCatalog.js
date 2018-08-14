@@ -5,17 +5,23 @@ class ProgramCatalog {
     constructor() {
         this.logo = element(by.css('.header__navbar--logo'));
         this.searchBar = element(by.css('.adjust-search input'));
-        this.resultCounter = element(by.css('.result-count'));        
+        this.resultCounter = element(by.css('.result-count'));
+        this.bannerCloseButton = element(by.css('.close-btn'));
 
         this.cards = element.all(by.css('.card__inner'));
         this.selectedFiltersField = element.all(by.css('.filters'));
 
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
-        this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
+        this.findCard = text => element(by.cssContainingText('ir-catlog-card div.card-wrapper', text));
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
+        this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
+        this.blueExpander = text => this.findCard(text).element(by.css('.blue.expander'));
+        this.shortDescription = text => this.findCard(text).element(by.css('.card__expander--summary'));
+        this.shortDescriptionText = text => this.findCard(text).element(by.css('.card__expander--summary span'));
+        this.learnMoreButton = text => this.findCard(text).element(by.css('.button--primary'));
 
         this.courseCount = null;
     }
@@ -23,6 +29,7 @@ class ProgramCatalog {
     load() {
         browser.get('https://eu.udacity.com/courses/all');
         this.waitForLogo();
+        this.bannerCloseButton.click();
         return browser.sleep(5000);
     }
 
@@ -75,14 +82,14 @@ class ProgramCatalog {
     }
 
     waitForDropdownList(text) {
-            browser.wait(() => {
-                return this.isDropdownFilterVisible(text);
-            });
+        browser.wait(() => {
+            return this.isDropdownFilterVisible(text);
+        });
     }
 
     openFilterDropdown(text) {
         return this.isDropdownFilterVisible(text).then(visible => {
-            if (!visible){
+            if (!visible) {
                 this.filterBox(text).click();
                 return this.waitForDropdownList(text);
             }
@@ -115,6 +122,35 @@ class ProgramCatalog {
                 });
             });
         });
+    }
+
+    clickOnTheExpander(text) {
+        return this.isShortDescriptionVisible(text).then(visible => {
+            if (!visible) {
+                this.blueExpander(text).click();
+                return this.waitForBlueExpander(text);
+            }
+        });
+    }
+
+    waitForBlueExpander(text) {
+        browser.wait(() => {
+            return this.isShortDescriptionVisible(text);
+        });
+    }
+
+    isShortDescriptionVisible(text) {
+        return this.shortDescription(text).isVisible();
+    }
+
+    isShortDescriptionNotEmpty(text) {
+        return this.shortDescriptionText(text).getText().then(elementText => {
+            return elementText.length > 0;
+        });
+    }
+
+    isLearnMoreButtonVisible(text) {
+        return this.learnMoreButton(text).isVisible();
     }
 }
 

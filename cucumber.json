@@ -9,10 +9,10 @@
     "elements": [
       {
         "keyword": "Scenario",
-        "line": 6,
-        "name": "1. The user should be able to use the search bar",
+        "line": 43,
+        "name": "4. The LEARN MORE button and short description should be visible",
         "tags": [],
-        "id": "browsing-the-udacity-program-catalog;1.-the-user-should-be-able-to-use-the-search-bar",
+        "id": "browsing-the-udacity-program-catalog;4.-the-learn-more-button-and-short-description-should-be-visible",
         "steps": [
           {
             "arguments": [],
@@ -20,115 +20,76 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 11067
+              "duration": 13616
             },
-            "line": 7,
+            "line": 44,
             "match": {
               "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "name": "the Udacity logo should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 46
-            },
-            "line": 8,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:35"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the search bar should be visible",
-            "result": {
-              "status": "passed",
-              "duration": 59
-            },
-            "line": 9,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:39"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the placeholder text should be \"Search\"",
-            "result": {
-              "status": "passed",
-              "duration": 37
-            },
-            "line": 10,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:43"
-            }
-          },
-          {
-            "arguments": [],
             "keyword": "When ",
-            "name": "the course count is remembered",
-            "result": {
-              "status": "passed",
-              "duration": 34
-            },
-            "line": 12,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:20"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
             "name": "the text \"android\" is typed into the search bar",
             "result": {
               "status": "passed",
-              "duration": 3457
+              "duration": 3336
             },
-            "line": 13,
+            "line": 46,
             "match": {
               "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:47"
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "name": "the course count should be less than the remembered course count",
+            "keyword": "And ",
+            "name": "the \"Android Basics by Google\" card's details expander is clicked",
             "result": {
               "status": "passed",
-              "duration": 2065
+              "duration": 510
             },
-            "line": 14,
+            "line": 47,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:51"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "name": "the search bar is cleared",
-            "result": {
-              "status": "passed",
-              "duration": 5189
-            },
-            "line": 16,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:26"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:85"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "name": "the course count should equal to the remembered course count",
+            "name": "the \"Android Basics by Google\" card's short description should be visible",
             "result": {
               "status": "passed",
-              "duration": 2039
+              "duration": 109
             },
-            "line": 17,
+            "line": 48,
             "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:51"
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:89"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"Android Basics by Google\" card's short description is not an empty string",
+            "result": {
+              "status": "passed",
+              "duration": 68
+            },
+            "line": 49,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:93"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"Android Basics by Google\" card's 'LEARN MORE' button should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 74
+            },
+            "line": 50,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:97"
             }
           },
           {
@@ -136,199 +97,7 @@
             "keyword": "After",
             "result": {
               "status": "passed",
-              "duration": 0
-            },
-            "hidden": true,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
-            }
-          }
-        ]
-      },
-      {
-        "keyword": "Scenario",
-        "line": 19,
-        "name": "2. The card details and the filter fields should work correctly",
-        "tags": [],
-        "id": "browsing-the-udacity-program-catalog;2.-the-card-details-and-the-filter-fields-should-work-correctly",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "name": "the Udacity course page is opened",
-            "result": {
-              "status": "passed",
-              "duration": 6789
-            },
-            "line": 20,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "name": "the text \"javascript\" is typed into the search bar",
-            "result": {
-              "status": "passed",
-              "duration": 3603
-            },
-            "line": 22,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:47"
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "javascript"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "name": "the selected filters field should contain the following filters:",
-            "result": {
-              "status": "passed",
-              "duration": 49
-            },
-            "line": 23,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:61"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the course count should equal to the result counter",
-            "result": {
-              "status": "passed",
-              "duration": 55
-            },
-            "line": 25,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:66"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "After",
-            "result": {
-              "status": "passed",
-              "duration": 1
-            },
-            "hidden": true,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
-            }
-          }
-        ]
-      },
-      {
-        "keyword": "Scenario",
-        "line": 28,
-        "name": "3. The card details, dropdown filter and filter fields should work correctly",
-        "tags": [],
-        "id": "browsing-the-udacity-program-catalog;3.-the-card-details,-dropdown-filter-and-filter-fields-should-work-correctly",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "name": "the Udacity course page is opened",
-            "result": {
-              "status": "passed",
-              "duration": 6784
-            },
-            "line": 29,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "name": "the \"Select Program Details\" dropdown is clicked",
-            "result": {
-              "status": "passed",
-              "duration": 455
-            },
-            "line": 31,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:31"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the \"Intermediate\" skill level is selected",
-            "result": {
-              "status": "passed",
-              "duration": 3347
-            },
-            "line": 32,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:72"
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "Intermediate"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "name": "the selected filters field should contain the following filters:",
-            "result": {
-              "status": "passed",
-              "duration": 67
-            },
-            "line": 33,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:61"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the intermediate course level logo should be visible for all cards",
-            "result": {
-              "status": "passed",
-              "duration": 2449
-            },
-            "line": 35,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:77"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "the \"Intermediate\" course level label should be visible for all cards",
-            "result": {
-              "status": "passed",
-              "duration": 3675
-            },
-            "line": 36,
-            "match": {
-              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:81"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "After",
-            "result": {
-              "status": "passed",
-              "duration": 0
+              "duration": 2
             },
             "hidden": true,
             "match": {
