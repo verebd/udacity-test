@@ -7,25 +7,26 @@ class ProgramCatalog {
         this.searchBar = element(by.css('.adjust-search input'));
         this.resultCounter = element(by.css('.result-count'));
         this.bannerCloseButton = element(by.css('.close-btn'));
+        this.selector = element(by.css('.selected-filters'));
 
         this.cards = element.all(by.css('.card__inner'));
         this.selectedFiltersField = element.all(by.css('.filters'));
 
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
-        this.findCard = text => element(by.cssContainingText('ir-catlog-card div.card-wrapper', text));
-        this.findCardTitle = text => element(by.cssContainingText('.card-heading a', text));
+        this.card = text => element(by.cssContainingText('ir-catlog-card div.card-wrapper', text));
         this.openedCourseTitle = text => element(by.cssContainingText('.hero__course--title', text));
-        this.filters = text => element(by.cssContainingText('.filters', text));
+        this.filters = text => element(by.cssContainingText('.selected-filters', text));
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
         this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
-        this.blueExpander = text => this.findCard(text).element(by.css('.blue.expander'));
-        this.shortDescription = text => this.findCard(text).element(by.css('.card__expander--summary'));
-        this.shortDescriptionText = text => this.findCard(text).element(by.css('.card__expander--summary span'));
-        this.learnMoreButton = text => this.findCard(text).element(by.css('.button--primary'));
+        this.blueExpander = text => this.card(text).element(by.css('.blue.expander'));
+        this.shortDescription = text => this.card(text).element(by.css('.card__expander--summary'));
+        this.learnMoreButton = text => this.card(text).element(by.css('.button--primary'));
         this.filtersCloser = text => this.filters(text).element(by.css('img'));
+        this.cardTitle = text => this.card(text).element(by.cssContainingText('.card-heading a', text));
+        this.cardPicture = text => this.card(text).element(by.css('.image_wrapper'));
 
         this.courseCount = null;
     }
@@ -87,7 +88,7 @@ class ProgramCatalog {
     }
 
     waitForDropdownList(text) {
-        browser.wait(() => {
+        return browser.wait(() => {
             return this.isDropdownFilterVisible(text);
         });
     }
@@ -139,13 +140,13 @@ class ProgramCatalog {
     }
 
     waitForBlueExpander(text) {
-        browser.wait(() => {
+        return browser.wait(() => {
             return this.isShortDescriptionVisible(text);
         });
     }
 
     waitForOpenedCourseTitle(text) {
-        browser.wait(() => {
+        return browser.wait(() => {
             return this.isOpenedCourseTitleVisible(text);
         });
     }
@@ -159,8 +160,8 @@ class ProgramCatalog {
     }
 
     isShortDescriptionNotEmpty(text) {
-        return this.shortDescriptionText(text).getText().then(elementText => {
-            return elementText.length > 0;
+        return this.shortDescription(text).getText().then(elementText => {
+            return !!elementText;
         });
     }
 
@@ -169,21 +170,32 @@ class ProgramCatalog {
     }
 
     clickOnCardTitle(text) {
-        this.findCardTitle(text).click();
-        return browser.sleep(3000);
+        this.cardTitle(text).click();
+        return this.waitForOpenedCourseTitle(text);
+    }
+
+    clickOnCardPicture(text) {
+        this.cardPicture(text).click();
+        return this.waitForOpenedCourseTitle(text);
+    }
+
+    clickOnCardLearnMoreButton(text) {
+        this.clickOnTheExpander(text);
+        this.learnMoreButton(text).click();
+        return this.waitForOpenedCourseTitle(text);
     }
 
     getOpenedCourseTitleText(text) {
-        this.waitForOpenedCourseTitle(text);
         return this.openedCourseTitle(text).getText();
     }
 
-    clickOnFilterCloser(text) {
-        return this.filtersCloser(text).click();
+    deleteFilter(text) {
+        this.filtersCloser(text).click();
+        return browser.sleep(3000);
     }
 
     isResultsLabelVisible() {
-        return this.resultCounter.isVisible();
+        return this.selector.isVisible();
     }
 }
 

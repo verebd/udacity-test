@@ -32,8 +32,8 @@ defineSupportCode(({
         return ProgramCatalog.openFilterDropdown(text);
     });
 
-    When(/^the X "([^"].*)" filter closer button is clicked$/, text => {
-        return ProgramCatalog.clickOnFilterCloser(text);
+    When(/^the X button is clicked for the "([^"].*)" filter$/, text => {
+        return ProgramCatalog.deleteFilter(text);
     });
 
     Then(/^the Udacity logo should be (visible|hidden)$/, visibility => {
@@ -86,31 +86,38 @@ defineSupportCode(({
         return expect(ProgramCatalog.isCorrectCourseLevelTextVisible(level)).to.eventually.be.true;
     });
 
-    Then(/^the "([^"].*)" card's details expander is clicked$/, text => {
+    Then(/^the "([^"].*)" card's details expander is opened$/, text => {
         return ProgramCatalog.clickOnTheExpander(text);
     });
 
-    Then(/^the "([^"].*)" card's short description should be visible$/, text => {
-        return expect(ProgramCatalog.isShortDescriptionVisible(text)).to.eventually.be.true;
+    Then(/^the "([^"].*)" card's short description should be (visible|hidden)$/, (text, visibility) => {
+        return expect(ProgramCatalog.isShortDescriptionVisible(text)).to.eventually.equal(visibility === "visible");
     });
 
     Then(/^the "([^"].*)" card's short description is not an empty string$/, text => {
         return expect(ProgramCatalog.isShortDescriptionNotEmpty(text)).to.eventually.be.true;
     });
 
-    Then(/^the "([^"].*)" card's 'LEARN MORE' button should be visible$/, text => {
-        return expect(ProgramCatalog.isLearnMoreButtonVisible(text)).to.eventually.be.true;
+    Then(/^the "([^"].*)" card's 'LEARN MORE' button should be (visible|hidden)$/, (text, visibility) => {
+        return expect(ProgramCatalog.isLearnMoreButtonVisible(text)).to.eventually.equal(visibility === "visible");
     });
 
-    Then(/^the "([^"].*)" card's title is clicked$/, text => {
-        return ProgramCatalog.clickOnCardTitle(text);
+    Then(/^the "([^"].*)" card's (title|image|LEARN MORE button) is clicked$/, (text, click) => {
+        switch(click) {
+            case "title": 
+                return ProgramCatalog.clickOnCardTitle(text);
+            case "image":
+                return ProgramCatalog.clickOnCardPicture(text);
+            case "LEARN MORE button":
+            return ProgramCatalog.clickOnCardLearnMoreButton(text);
+        }
     });
-
+    
     Then(/^the opened page's title should be "([^"].*)"$/, text => {
         return expect(ProgramCatalog.getOpenedCourseTitleText(text)).to.eventually.equal(text);
     });
 
     Then(/^the "Results" label should not be visible$/, () => {
-        return ProgramCatalog.isResultsLabelVisible();
+        return expect(ProgramCatalog.isResultsLabelVisible()).to.eventually.be.false;
     });
 });
