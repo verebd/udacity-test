@@ -143,6 +143,16 @@ class ProgramCatalog {
         });
     }
 
+    waitForOpenedCourseTitle(text) {
+        browser.wait(() => {
+            return this.isOpenedCourseTitleVisible(text);
+        });
+    }
+
+    isOpenedCourseTitleVisible(text) {
+        return this.openedCourseTitle(text).isVisible();
+    }
+
     isShortDescriptionVisible(text) {
         return this.shortDescription(text).isVisible();
     }
@@ -163,6 +173,7 @@ class ProgramCatalog {
     }
 
     getOpenedCourseTitleText(text) {
+        this.waitForOpenedCourseTitle(text);
         return this.openedCourseTitle(text).getText();
     }
 
