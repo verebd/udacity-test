@@ -25,7 +25,7 @@ Scenario: 2. The card details and the filter fields should work correctly
         |javascript|
     And the course count should equal to the result counter
 
-   When the X filter closing button is clicked
+   When the X filter closer button is clicked
    Then the "Results" label should not be visible
     And the characters should be removed automatically from the search bar
     And the course count should equal to the remembered course count
@@ -44,13 +44,14 @@ Scenario: 3. The card details, dropdown filter and filter fields should work cor
 Scenario: 4. The LEARN MORE button and short description should be visible
   Given the Udacity course page is opened
 
-   When the details expander is clicked
+   When the text "android" is typed into the search bar
+    And "Android Basics By Google" card's details expander is clicked
    Then short description should be visible
     And 'LEARN MORE' button should be visible
 
-Scenario: 5. Alternative course opening should work correctly
+Scenario: 5. Alternative course page opening should work correctly
   Given the Udacity course page is opened
 
    When the text "javascript" is typed into the search bar
-    And the "Intro To JavaScript" course card is clicked
+    And the "Intro To JavaScript" card's title is clicked
    Then the opened page's title should be "Intro To JavaScript"
