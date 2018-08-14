@@ -31,6 +31,7 @@ class ProgramCatalog {
     }
 
     load() {
+        browser.driver.manage().deleteAllCookies(); 
         browser.get('https://eu.udacity.com/courses/all');
         this.waitForLogo();
         this.bannerCloseButton.click();
