@@ -14,6 +14,9 @@ class ProgramCatalog {
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
         this.findCard = text => element(by.cssContainingText('ir-catlog-card div.card-wrapper', text));
+        this.findCardTitle = text => element(by.cssContainingText('.card-heading a', text));
+        this.openedCourseTitle = text => element(by.cssContainingText('.hero__course--title', text));
+        this.filters = text => element(by.cssContainingText('.filters', text));
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
@@ -22,6 +25,7 @@ class ProgramCatalog {
         this.shortDescription = text => this.findCard(text).element(by.css('.card__expander--summary'));
         this.shortDescriptionText = text => this.findCard(text).element(by.css('.card__expander--summary span'));
         this.learnMoreButton = text => this.findCard(text).element(by.css('.button--primary'));
+        this.filtersCloser = text => this.filters(text).element(by.css('img'));
 
         this.courseCount = null;
     }
@@ -151,6 +155,23 @@ class ProgramCatalog {
 
     isLearnMoreButtonVisible(text) {
         return this.learnMoreButton(text).isVisible();
+    }
+
+    clickOnCardTitle(text) {
+        this.findCardTitle(text).click();
+        return browser.sleep(3000);
+    }
+
+    getOpenedCourseTitleText(text) {
+        return this.openedCourseTitle(text).getText();
+    }
+
+    clickOnFilterCloser(text) {
+        return this.filtersCloser(text).click();
+    }
+
+    isResultsLabelVisible() {
+        return this.resultCounter.isVisible();
     }
 }
 

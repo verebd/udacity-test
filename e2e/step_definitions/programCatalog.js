@@ -32,6 +32,10 @@ defineSupportCode(({
         return ProgramCatalog.openFilterDropdown(text);
     });
 
+    When(/^the X "([^"].*)" filter closer button is clicked$/, text => {
+        return ProgramCatalog.clickOnFilterCloser(text);
+    });
+
     Then(/^the Udacity logo should be (visible|hidden)$/, visibility => {
         return expect(ProgramCatalog.isLogoVisible()).to.eventually.equal(visibility === 'visible');
     });
@@ -96,5 +100,17 @@ defineSupportCode(({
 
     Then(/^the "([^"].*)" card's 'LEARN MORE' button should be visible$/, text => {
         return expect(ProgramCatalog.isLearnMoreButtonVisible(text)).to.eventually.be.true;
+    });
+
+    Then(/^the "([^"].*)" card's title is clicked$/, text => {
+        return ProgramCatalog.clickOnCardTitle(text);
+    });
+
+    Then(/^the opened page's title should be "([^"].*)"$/, text => {
+        return expect(ProgramCatalog.getOpenedCourseTitleText(text)).to.eventually.equal(text);
+    });
+
+    Then(/^the "Results" label should not be visible$/, () => {
+        return ProgramCatalog.isResultsLabelVisible();
     });
 });

@@ -17,7 +17,6 @@ Scenario: 1. The user should be able to use the search bar
    When the search bar is cleared
    Then the course count should equal to the remembered course count
 
-@wip   
 Scenario: 2. The card details and the filter fields should work correctly
   Given the Udacity course page is opened
     
@@ -42,6 +41,7 @@ Scenario: 3. The card details, dropdown filter and filter fields should work cor
     And the intermediate course level logo should be visible for all cards
     And the "Intermediate" course level label should be visible for all cards
 
+@wip
 Scenario: 4. The LEARN MORE button and short description should be visible
   Given the Udacity course page is opened
 
@@ -56,5 +56,5 @@ Scenario: 5. Alternative course page opening should work correctly
   Given the Udacity course page is opened
 
    When the text "javascript" is typed into the search bar
-    And the "Intro To JavaScript" card's title is clicked
-   Then the opened page's title should be "Intro To JavaScript"
+    And the "Intro to JavaScript" card's title is clicked
+   Then the opened page's title should be "Intro to JavaScript"
