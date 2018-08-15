@@ -5,24 +5,37 @@ class ProgramCatalog {
     constructor() {
         this.logo = element(by.css('.header__navbar--logo'));
         this.searchBar = element(by.css('.adjust-search input'));
-        this.resultCounter = element(by.css('.result-count'));        
+        this.resultCounter = element(by.css('.result-count'));
+        this.bannerCloseButton = element(by.css('.close-btn'));
+        this.selector = element(by.css('.selected-filters'));
 
         this.cards = element.all(by.css('.card__inner'));
         this.selectedFiltersField = element.all(by.css('.filters'));
 
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
-        this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
+        this.card = text => element(by.cssContainingText('ir-catlog-card div.card-wrapper', text));
+        this.openedCourseTitle = text => element(by.cssContainingText('.hero__course--title', text));
+        this.filters = text => element(by.cssContainingText('.selected-filters', text));
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
+        this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
+        this.blueExpander = text => this.card(text).element(by.css('.blue.expander'));
+        this.shortDescription = text => this.card(text).element(by.css('.card__expander--summary'));
+        this.learnMoreButton = text => this.card(text).element(by.css('.button--primary'));
+        this.filtersCloser = text => this.filters(text).element(by.css('img'));
+        this.cardTitle = text => this.card(text).element(by.css('.card-heading a'));
+        this.cardImage = text => this.card(text).element(by.css('.image_wrapper'));
 
         this.courseCount = null;
     }
 
     load() {
+        browser.driver.manage().deleteAllCookies(); 
         browser.get('https://eu.udacity.com/courses/all');
         this.waitForLogo();
+        this.bannerCloseButton.click();
         return browser.sleep(5000);
     }
 
@@ -75,14 +88,14 @@ class ProgramCatalog {
     }
 
     waitForDropdownList(text) {
-            browser.wait(() => {
-                return this.isDropdownFilterVisible(text);
-            });
+        return browser.wait(() => {
+            return this.isDropdownFilterVisible(text);
+        });
     }
 
     openFilterDropdown(text) {
         return this.isDropdownFilterVisible(text).then(visible => {
-            if (!visible){
+            if (!visible) {
                 this.filterBox(text).click();
                 return this.waitForDropdownList(text);
             }
@@ -90,7 +103,8 @@ class ProgramCatalog {
     }
 
     clickOnFilter(text) {
-        return this.filterOption(text).click();
+        this.filterOption(text).click();
+        return browser.sleep(3000);
     }
 
     areCourseLevelLogosCorrect(level) {
@@ -115,6 +129,74 @@ class ProgramCatalog {
                 });
             });
         });
+    }
+
+    openShortDescription(text) {
+        return this.isShortDescriptionVisible(text).then(visible => {
+            if (!visible) {
+                this.blueExpander(text).click();
+                return this.waitForBlueExpander(text);
+            }
+        });
+    }
+
+    waitForBlueExpander(text) {
+        return browser.wait(() => {
+            return this.isShortDescriptionVisible(text);
+        });
+    }
+
+    waitForOpenedCourseTitle(text) {
+        return browser.wait(() => {
+            return this.isOpenedCourseTitleVisible(text);
+        });
+    }
+
+    isOpenedCourseTitleVisible(text) {
+        return this.openedCourseTitle(text).isVisible();
+    }
+
+    isShortDescriptionVisible(text) {
+        return this.shortDescription(text).isVisible();
+    }
+
+    isShortDescriptionNotEmpty(text) {
+        return this.shortDescription(text).getText().then(elementText => {
+            return !!elementText;
+        });
+    }
+
+    isLearnMoreButtonVisible(text) {
+        return this.learnMoreButton(text).isVisible();
+    }
+
+    clickOnCardTitle(text) {
+        this.cardTitle(text).click();
+        return this.waitForOpenedCourseTitle(text);
+    }
+
+    clickOnCardImage(text) {
+        this.cardImage(text).click();
+        return this.waitForOpenedCourseTitle(text);
+    }
+
+    clickOnCardLearnMoreButton(text) {
+        this.openShortDescription(text);
+        this.learnMoreButton(text).click();
+        return this.waitForOpenedCourseTitle(text);
+    }
+
+    getOpenedCourseTitleText(text) {
+        return this.openedCourseTitle(text).getText();
+    }
+
+    deleteFilter(text) {
+        this.filtersCloser(text).click();
+        return browser.sleep(3000);
+    }
+
+    isResultsLabelVisible() {
+        return this.selector.isVisible();
     }
 }
 
