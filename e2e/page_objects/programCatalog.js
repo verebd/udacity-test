@@ -25,8 +25,8 @@ class ProgramCatalog {
         this.shortDescription = text => this.card(text).element(by.css('.card__expander--summary'));
         this.learnMoreButton = text => this.card(text).element(by.css('.button--primary'));
         this.filtersCloser = text => this.filters(text).element(by.css('img'));
-        this.cardTitle = text => this.card(text).element(by.cssContainingText('.card-heading a', text));
-        this.cardPicture = text => this.card(text).element(by.css('.image_wrapper'));
+        this.cardTitle = text => this.card(text).element(by.css('.card-heading a'));
+        this.cardImage = text => this.card(text).element(by.css('.image_wrapper'));
 
         this.courseCount = null;
     }
@@ -103,7 +103,8 @@ class ProgramCatalog {
     }
 
     clickOnFilter(text) {
-        return this.filterOption(text).click();
+        this.filterOption(text).click();
+        return browser.sleep(3000);
     }
 
     areCourseLevelLogosCorrect(level) {
@@ -130,7 +131,7 @@ class ProgramCatalog {
         });
     }
 
-    clickOnTheExpander(text) {
+    openShortDescription(text) {
         return this.isShortDescriptionVisible(text).then(visible => {
             if (!visible) {
                 this.blueExpander(text).click();
@@ -174,13 +175,13 @@ class ProgramCatalog {
         return this.waitForOpenedCourseTitle(text);
     }
 
-    clickOnCardPicture(text) {
-        this.cardPicture(text).click();
+    clickOnCardImage(text) {
+        this.cardImage(text).click();
         return this.waitForOpenedCourseTitle(text);
     }
 
     clickOnCardLearnMoreButton(text) {
-        this.clickOnTheExpander(text);
+        this.openShortDescription(text);
         this.learnMoreButton(text).click();
         return this.waitForOpenedCourseTitle(text);
     }

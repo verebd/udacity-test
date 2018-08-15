@@ -74,8 +74,7 @@ defineSupportCode(({
     });
 
     Then(/^the "([^"].*)" skill level is selected$/, text => {
-        ProgramCatalog.clickOnFilter(text);
-        return browser.sleep(3000);
+        return ProgramCatalog.clickOnFilter(text);
     });
 
     Then(/^the (.*) course level logo should be visible for all cards$/, text => {
@@ -87,7 +86,7 @@ defineSupportCode(({
     });
 
     Then(/^the "([^"].*)" card's details expander is opened$/, text => {
-        return ProgramCatalog.clickOnTheExpander(text);
+        return ProgramCatalog.openShortDescription(text);
     });
 
     Then(/^the "([^"].*)" card's short description should be (visible|hidden)$/, (text, visibility) => {
@@ -107,9 +106,9 @@ defineSupportCode(({
             case "title": 
                 return ProgramCatalog.clickOnCardTitle(text);
             case "image":
-                return ProgramCatalog.clickOnCardPicture(text);
+                return ProgramCatalog.clickOnCardImage(text);
             case "LEARN MORE button":
-            return ProgramCatalog.clickOnCardLearnMoreButton(text);
+                return ProgramCatalog.clickOnCardLearnMoreButton(text);
         }
     });
     
