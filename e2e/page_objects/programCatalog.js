@@ -7,10 +7,13 @@ class ProgramCatalog {
         this.searchBar = element(by.css('.adjust-search input'));
         this.resultCounter = element(by.css('.result-count'));
         this.bannerCloseButton = element(by.css('.close-btn'));
-        this.selector = element(by.css('.selected-filters'));
+        this.resultsLabel = element(by.css('.selected-filters'));
+        this.selectedFiltersField = element(by.css('.filters'));
 
         this.cards = element.all(by.css('.card__inner'));
-        this.selectedFiltersField = element.all(by.css('.filters'));
+        this.AllselectedFiltersInTheField = element.all(by.css('.filters'));
+        this.selectedItemWrapper = element.all(by.css('.selected-item-wrapper span'));
+        this.filterOptions = element.all(by.css('.hidden-sm-down.mb-2 .multiselect-item-checkbox'));
 
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
@@ -27,6 +30,7 @@ class ProgramCatalog {
         this.filtersCloser = text => this.filters(text).element(by.css('img'));
         this.cardTitle = text => this.card(text).element(by.css('.card-heading a'));
         this.cardImage = text => this.card(text).element(by.css('.image_wrapper'));
+        this.checkBoxInput = filterOption => filterOption.element(by.css('input'));
 
         this.courseCount = null;
     }
@@ -71,7 +75,11 @@ class ProgramCatalog {
         return this.searchBar.sendKeys(protractor.Key.BACK_SPACE);
     }
 
-    selectedFilters() {
+    allSelectedFilters() {
+        return this.AllselectedFiltersInTheField.getText();
+    }
+
+    selectedFilter() {
         return this.selectedFiltersField.getText();
     }
 
@@ -196,7 +204,27 @@ class ProgramCatalog {
     }
 
     isResultsLabelVisible() {
-        return this.selector.isVisible();
+        return this.resultsLabel.isVisible();
+    }
+
+    selectSkill(text) {
+        return this.filterOption(text).click();
+    }
+
+    getSelectedItemWrapper() {
+        return this.selectedItemWrapper.getText();
+    }
+
+    isCheckboxSelected() {
+        return this.filterOptions.then(options => {
+            return Promise.all(options.filter((item) => {
+                return this.checkBoxInput(item).isSelected();
+            })).then(result => {
+                return Promise.all(result.map(item => {
+                    return item.getText();
+                }));
+            });
+        });
     }
 }
 

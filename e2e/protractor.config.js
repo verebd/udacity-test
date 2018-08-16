@@ -26,7 +26,14 @@ exports.config = {
         const chai = require('chai');
         chai.use(require('chai-as-promised'));
         global.expect = chai.expect;
-
+        global.convertDataTable = table => {
+            let array = [];
+            table.raw().forEach(element => {
+                array.push(element[0]);
+            });
+            return array;
+        };
+        
         protractor.ElementFinder.prototype.isVisible = function () {
             return this.isPresent().then(present => {
                 if (present) {

@@ -1,0 +1,228 @@
+[
+  {
+    "description": "    As a user\n    I want to search in the Udacity program catalog\n    so that I can choose the proper course",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Browsing the Udacity program catalog",
+    "tags": [],
+    "uri": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\features\\Udacity.feature",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "line": 68,
+        "name": "6. Inspect the filters and the Skills Covered section",
+        "tags": [],
+        "id": "browsing-the-udacity-program-catalog;6.-inspect-the-filters-and-the-skills-covered-section",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "the Udacity course page is opened",
+            "result": {
+              "status": "passed",
+              "duration": 11994
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:16"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "the \"Industry Skills\" dropdown is clicked",
+            "result": {
+              "status": "passed",
+              "duration": 499
+            },
+            "line": 71,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"Android Development\" skill is selected",
+            "result": {
+              "status": "passed",
+              "duration": 233
+            },
+            "line": 72,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:122"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"C++\" skill is selected",
+            "result": {
+              "status": "passed",
+              "duration": 193
+            },
+            "line": 73,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:122"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "the \"CSS\" skill is selected",
+            "result": {
+              "status": "passed",
+              "duration": 163
+            },
+            "line": 74,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:122"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Android Development"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "C++"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "CSS"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "name": "the selected filters field should contain the following filters:",
+            "result": {
+              "status": "passed",
+              "duration": 117
+            },
+            "line": 75,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:126"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Android Development"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "C++"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "CSS"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "name": "the dropdown title should contain the following filters:",
+            "result": {
+              "status": "passed",
+              "duration": 97
+            },
+            "line": 79,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:131"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Android Development"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "C++"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "CSS"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "name": "the checkboxes in the dropdown should be checked at the following filters:",
+            "result": {
+              "status": "failed",
+              "duration": 2945,
+              "error_message": "AssertionError: expected [ Array(63) ] to deeply equal [ 'Android Development', 'C++', 'CSS' ]\n    at getBasePromise.then.then.newArgs (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\chai-as-promised\\lib\\chai-as-promised.js:302:22)\n    at ManagedPromise.invokeCallback_ (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at process._tickCallback (internal/process/next_tick.js:109:7)"
+            },
+            "line": 83,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:136"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Android Development"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "C++"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "CSS"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "name": "the cards \"Skills Covered\" section should contain one of the following filters:",
+            "result": {
+              "status": "undefined"
+            },
+            "line": 87
+          },
+          {
+            "arguments": [],
+            "keyword": "After",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:48"
+            }
+          }
+        ]
+      }
+    ],
+    "id": "browsing-the-udacity-program-catalog"
+  }
+]

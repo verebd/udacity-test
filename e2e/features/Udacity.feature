@@ -28,20 +28,20 @@ Scenario: 2. The card details and the filter fields should work correctly
    When the X button is clicked for the "javascript" filter
    Then the "Results" label should not be visible
     And the course count should equal to the remembered course count
-
+@wip
 Scenario Outline: 3. The card details, dropdown filter and filter fields should work correctly
   Given the Udacity course page is opened
 
    When the "Select Program Details" dropdown is clicked
     And the <level> skill level is selected
    Then the selected filters field should contain the following filter: <level>
-    And the <level> course level logo should be visible for all cards
+    And the <logoLevel> course level logo should be visible for all cards
     And the <level> course level label should be visible for all cards
 Examples:
-        |    level   |
-        |  Beginner  |
-        |Intermediate|
-        |  Advanced  |
+        |     level    |  logoLevel |
+        |  "Beginner"  |  "beginner"  |
+        |"Intermediate"|"intermediate"|
+        |  "Advanced"  |  "advanced"  |
 
 @wip
 Scenario: 4. The LEARN MORE button and short description should be visible
@@ -64,7 +64,7 @@ Examples:
 |      the "Intro to JavaScript" card's title is clicked      |
 |      the "Intro to JavaScript" card's image is clicked      |
 |the "Intro to JavaScript" card's LEARN MORE button is clicked|
-@wip
+
 Scenario: 6. Inspect the filters and the Skills Covered section
   Given the Udacity course page is opened
 
