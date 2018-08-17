@@ -20,7 +20,7 @@
             "name": "the Udacity course page is opened",
             "result": {
               "status": "passed",
-              "duration": 11994
+              "duration": 15758
             },
             "line": 69,
             "match": {
@@ -33,7 +33,7 @@
             "name": "the \"Industry Skills\" dropdown is clicked",
             "result": {
               "status": "passed",
-              "duration": 499
+              "duration": 537
             },
             "line": 71,
             "match": {
@@ -46,7 +46,7 @@
             "name": "the \"Android Development\" skill is selected",
             "result": {
               "status": "passed",
-              "duration": 233
+              "duration": 242
             },
             "line": 72,
             "match": {
@@ -59,7 +59,7 @@
             "name": "the \"C++\" skill is selected",
             "result": {
               "status": "passed",
-              "duration": 193
+              "duration": 216
             },
             "line": 73,
             "match": {
@@ -72,7 +72,7 @@
             "name": "the \"CSS\" skill is selected",
             "result": {
               "status": "passed",
-              "duration": 163
+              "duration": 439
             },
             "line": 74,
             "match": {
@@ -105,7 +105,7 @@
             "name": "the selected filters field should contain the following filters:",
             "result": {
               "status": "passed",
-              "duration": 117
+              "duration": 113
             },
             "line": 75,
             "match": {
@@ -138,7 +138,7 @@
             "name": "the dropdown title should contain the following filters:",
             "result": {
               "status": "passed",
-              "duration": 97
+              "duration": 100
             },
             "line": 79,
             "match": {
@@ -170,9 +170,8 @@
             "keyword": "And ",
             "name": "the checkboxes in the dropdown should be checked at the following filters:",
             "result": {
-              "status": "failed",
-              "duration": 2945,
-              "error_message": "AssertionError: expected [ Array(63) ] to deeply equal [ 'Android Development', 'C++', 'CSS' ]\n    at getBasePromise.then.then.newArgs (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\chai-as-promised\\lib\\chai-as-promised.js:302:22)\n    at ManagedPromise.invokeCallback_ (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at process._tickCallback (internal/process/next_tick.js:109:7)"
+              "status": "passed",
+              "duration": 2043
             },
             "line": 83,
             "match": {
@@ -204,9 +203,13 @@
             "keyword": "And ",
             "name": "the cards \"Skills Covered\" section should contain one of the following filters:",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 2583
             },
-            "line": 87
+            "line": 87,
+            "match": {
+              "location": "C:\\Users\\Milan_Horvath\\repositories\\udacity-test\\e2e\\step_definitions\\programCatalog.js:141"
+            }
           },
           {
             "arguments": [],

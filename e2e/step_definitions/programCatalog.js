@@ -137,4 +137,9 @@ defineSupportCode(({
         let filterArray = convertDataTable(filters);
         return expect(ProgramCatalog.isCheckboxSelected()).to.eventually.eql(filterArray);
     });
+
+    Then(/^the cards "Skills Covered" section should contain one of the following filters:$/, filters => {
+        let filterArray = convertDataTable(filters);
+        return expect(ProgramCatalog.isSkillsCoveredSectionContainsTheFilters(filterArray)).to.eventually.be.true;
+    });
 });

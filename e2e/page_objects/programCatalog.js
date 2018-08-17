@@ -31,6 +31,7 @@ class ProgramCatalog {
         this.cardTitle = text => this.card(text).element(by.css('.card-heading a'));
         this.cardImage = text => this.card(text).element(by.css('.image_wrapper'));
         this.checkBoxInput = filterOption => filterOption.element(by.css('input'));
+        this.skillsCoveredSection = card => card.all(by.css('.skills .truncate-content span'));
 
         this.courseCount = null;
     }
@@ -205,6 +206,7 @@ class ProgramCatalog {
 
     isResultsLabelVisible() {
         return this.resultsLabel.isVisible();
+
     }
 
     selectSkill(text) {
@@ -216,13 +218,26 @@ class ProgramCatalog {
     }
 
     isCheckboxSelected() {
-        return this.filterOptions.then(options => {
-            return Promise.all(options.filter((item) => {
-                return this.checkBoxInput(item).isSelected();
+        return this.filterOptions.filter((item) => {
+            return this.checkBoxInput(item).isSelected();
+        }).then(results => {
+            return Promise.all(results.map(item => {
+                return item.getText();
+            }));
+        });
+    }
+
+    isSkillsCoveredSectionContainsTheFilters(filters) { 
+        return this.cards.then(cards => {
+            return Promise.all(cards.map (card => {
+                return this.skillsCoveredSection(card).getText().then(item => {
+                    return item;
+                });
             })).then(result => {
-                return Promise.all(result.map(item => {
-                    return item.getText();
-                }));
+                return result.every(element => {
+                    let array = makeStringArray(element);
+                    return array.indexOf(filters);
+                });
             });
         });
     }

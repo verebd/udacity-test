@@ -88,4 +88,3 @@ Scenario: 6. Inspect the filters and the Skills Covered section
         |Android Development|
         |        C++        |
         |        CSS        |
- 
