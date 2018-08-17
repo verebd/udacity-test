@@ -2,7 +2,7 @@ Feature: Browsing the Udacity program catalog
     As a user
     I want to search in the Udacity program catalog
     so that I can choose the proper course
-@wip
+
 Scenario: 1. The user should be able to use the search bar
   Given the Udacity course page is opened
    Then the Udacity logo should be visible
@@ -15,7 +15,7 @@ Scenario: 1. The user should be able to use the search bar
 
    When the search bar is cleared
    Then the course count should equal to the remembered course count
-@wip
+
 Scenario: 2. The card details and the filter fields should work correctly
   Given the Udacity course page is opened
     
@@ -28,7 +28,7 @@ Scenario: 2. The card details and the filter fields should work correctly
    When the X button is clicked for the "javascript" filter
    Then the "Results" label should not be visible
     And the course count should equal to the remembered course count
-@wip
+
 Scenario Outline: 3. The card details, dropdown filter and filter fields should work correctly
   Given the Udacity course page is opened
 
@@ -43,7 +43,7 @@ Examples:
         |"Intermediate"|"intermediate"|
         |  "Advanced"  |  "advanced"  |
 
-@wip
+
 Scenario: 4. The LEARN MORE button and short description should be visible
   Given the Udacity course page is opened
 
@@ -52,7 +52,7 @@ Scenario: 4. The LEARN MORE button and short description should be visible
    Then the "Android Basics by Google" card's short description should be visible
     And the "Android Basics by Google" card's short description is not an empty string
     And the "Android Basics by Google" card's 'LEARN MORE' button should be visible
-@wip
+
 Scenario Outline: 5. Alternative course page opening should work correctly
   Given the Udacity course page is opened
 

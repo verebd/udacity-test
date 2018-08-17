@@ -14,6 +14,7 @@ class ProgramCatalog {
         this.AllselectedFiltersInTheField = element.all(by.css('.filters'));
         this.selectedItemWrapper = element.all(by.css('.selected-item-wrapper span'));
         this.filterOptions = element.all(by.css('.hidden-sm-down.mb-2 .multiselect-item-checkbox'));
+        this.skillsCoveredSection = card => card.all(by.css('.skills .truncate-content span'));
 
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
@@ -23,6 +24,8 @@ class ProgramCatalog {
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
+        this.checkBoxInput = filterOption => filterOption.element(by.css('input'));
+
         this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
         this.blueExpander = text => this.card(text).element(by.css('.blue.expander'));
         this.shortDescription = text => this.card(text).element(by.css('.card__expander--summary'));
@@ -30,8 +33,6 @@ class ProgramCatalog {
         this.filtersCloser = text => this.filters(text).element(by.css('img'));
         this.cardTitle = text => this.card(text).element(by.css('.card-heading a'));
         this.cardImage = text => this.card(text).element(by.css('.image_wrapper'));
-        this.checkBoxInput = filterOption => filterOption.element(by.css('input'));
-        this.skillsCoveredSection = card => card.all(by.css('.skills .truncate-content span'));
 
         this.courseCount = null;
     }
@@ -236,7 +237,12 @@ class ProgramCatalog {
             })).then(result => {
                 return result.every(element => {
                     let array = makeStringArray(element);
-                    return array.indexOf(filters);
+                    for (let i=0; i<filters.length; i++){
+                        if (array.indexOf(filters[i]) > -1){
+                            return true;
+                        }
+                    }
+                    return false;
                 });
             });
         });
