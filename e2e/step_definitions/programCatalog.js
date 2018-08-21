@@ -62,11 +62,6 @@ defineSupportCode(({
         }
     });
 
-    Then(/^the selected filters field should contain the following filter: "([^"].*)"$/, filter => {
-        let filterArray = convertDataTable(filter);
-        return expect(ProgramCatalog.selectedFilter()).to.eventually.equal(filterArray);
-    });
-
     Then(/^the course count should equal to the result counter$/, () => {
         return ProgramCatalog.countCourses().then(courseCount => {
             return expect(ProgramCatalog.getResultCounter()).to.eventually.equal(courseCount);
@@ -144,7 +139,7 @@ defineSupportCode(({
         return expect(ProgramCatalog.isSkillsCoveredSectionContainsTheFilters(filterArray)).to.eventually.be.true;
     });
 
-    Then(/^the warning message should be visible$/, () => {
-        return expect(ProgramCatalog.isEmptySearchTextVisible()).to.eventually.be.true;
+    Then(/^the warning message should be (visible|hidden)$/, visibility => {
+        return expect(ProgramCatalog.isEmptySearchTextVisible()).to.eventually.equal(visibility === "visible");
     });
 });

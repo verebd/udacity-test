@@ -8,7 +8,7 @@ class ProgramCatalog {
         this.resultCounter = element(by.css('.result-count'));
         this.bannerCloseButton = element(by.css('.close-btn'));
         this.resultsLabel = element(by.css('.selected-filters'));
-        this.selectedFiltersField = element(by.css('.filters'));
+        this.selectedFiltersField = element.all(by.css('.filters'));
         this.emptyState = element(by.css('.empty-state'));
 
         this.cards = element.all(by.css('.card__inner'));
@@ -80,10 +80,6 @@ class ProgramCatalog {
 
     allSelectedFilters() {
         return this.allSelectedFiltersInTheField.getText();
-    }
-
-    selectedFilter() {
-        return this.selectedFiltersField.getText();
     }
 
     getResultCounter() {
