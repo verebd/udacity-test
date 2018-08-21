@@ -26,7 +26,33 @@ exports.config = {
         const chai = require('chai');
         chai.use(require('chai-as-promised'));
         global.expect = chai.expect;
+        
+        global.convertDataTable = table => {
+            let array = [];
+            table.raw().forEach(element => {
+                array.push(element[0]);
+            });
+            return array;
+        };
 
+        global.makeStringArray = array =>{
+            let newArray = [];
+            let string;
+            if (array.length === 1){
+                return array;
+            }
+                for (let i=0; i<array.length; i++){
+                    if (i !== array.length-1){
+                        string = array[i].substring(0,array[i].length-1);
+                        newArray.push(string);
+                    } else {
+                        string = array[i];
+                        newArray.push(string);
+                    }
+                }
+                return newArray;
+        };
+        
         protractor.ElementFinder.prototype.isVisible = function () {
             return this.isPresent().then(present => {
                 if (present) {

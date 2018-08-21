@@ -62,26 +62,21 @@ defineSupportCode(({
         }
     });
 
-    Then(/^the selected filters field should contain the following filters:$/, filters => {
-        let filtersArray = filters.raw()[0];
-        return expect(ProgramCatalog.selectedFilters()).to.eventually.eql(filtersArray);
-    });
-
     Then(/^the course count should equal to the result counter$/, () => {
         return ProgramCatalog.countCourses().then(courseCount => {
             return expect(ProgramCatalog.getResultCounter()).to.eventually.equal(courseCount);
         });
     });
 
-    Then(/^the "([^"].*)" skill level is selected$/, text => {
+    Then(/^the ([^"].*) skill level is selected$/, text => {
         return ProgramCatalog.clickOnFilter(text);
     });
 
-    Then(/^the (.*) course level logo should be visible for all cards$/, text => {
-        return expect(ProgramCatalog.areCourseLevelLogosCorrect(text)).to.eventually.be.true;
+    Then(/^the ([^"].*) course level logo should be visible for all cards$/, text => {
+        return expect(ProgramCatalog.areCourseLevelLogosCorrect(text.toLowerCase())).to.eventually.be.true;
     });
 
-    Then(/^the "([^"].*)" course level label should be visible for all cards$/, level => {
+    Then(/^the ([^"].*) course level label should be visible for all cards$/, level => {
         return expect(ProgramCatalog.isCorrectCourseLevelTextVisible(level)).to.eventually.be.true;
     });
 
@@ -118,5 +113,33 @@ defineSupportCode(({
 
     Then(/^the "Results" label should not be visible$/, () => {
         return expect(ProgramCatalog.isResultsLabelVisible()).to.eventually.be.false;
+    });
+
+    Then(/^the "([^"].*)" skill is selected$/, text => {
+        return ProgramCatalog.selectSkill(text);
+    });
+
+    Then(/^the selected filters field should contain the following filters:$/, filters => {
+        let filterArray = convertDataTable(filters);
+        return expect(ProgramCatalog.allSelectedFilters()).to.eventually.eql(filterArray);
+    });
+
+    Then(/^the dropdown title should contain the following filters:$/, filters => {
+        let filterArray = convertDataTable(filters);
+        return expect(ProgramCatalog.getSelectedItemWrapper()).to.eventually.eql(filterArray);
+    });
+
+    Then(/^the checkboxes in the dropdown should be checked at the following filters:$/, filters => {
+        let filterArray = convertDataTable(filters);
+        return expect(ProgramCatalog.isCheckboxSelected()).to.eventually.eql(filterArray);
+    });
+
+    Then(/^the cards "Skills Covered" section should contain one of the following filters:$/, filters => {
+        let filterArray = convertDataTable(filters);
+        return expect(ProgramCatalog.isSkillsCoveredSectionContainsTheFilters(filterArray)).to.eventually.be.true;
+    });
+
+    Then(/^the warning message should be (visible|hidden)$/, visibility => {
+        return expect(ProgramCatalog.isEmptySearchTextVisible()).to.eventually.equal(visibility === "visible");
     });
 });

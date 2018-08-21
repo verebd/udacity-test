@@ -7,10 +7,14 @@ class ProgramCatalog {
         this.searchBar = element(by.css('.adjust-search input'));
         this.resultCounter = element(by.css('.result-count'));
         this.bannerCloseButton = element(by.css('.close-btn'));
-        this.selector = element(by.css('.selected-filters'));
+        this.resultsLabel = element(by.css('.selected-filters'));
+        this.emptyState = element(by.css('.empty-state'));
 
         this.cards = element.all(by.css('.card__inner'));
-        this.selectedFiltersField = element.all(by.css('.filters'));
+        this.allSelectedFiltersInTheField = element.all(by.css('.filters'));
+        this.selectedItemWrapper = element.all(by.css('.selected-item-wrapper span'));
+        this.filterOptions = element.all(by.css('.hidden-sm-down.mb-2 .multiselect-item-checkbox'));
+        this.skillsCoveredSection = card => card.all(by.css('.skills .truncate-content span'));
 
         this.filterBox = text => element(by.cssContainingText('.multiselect-dropdown', text));
         this.filterOption = text => element(by.cssContainingText('.multiselect-item-checkbox', text));
@@ -20,6 +24,8 @@ class ProgramCatalog {
 
         this.courseLevelLogo = card => card.element(by.css('span > .course-level'));
         this.courseLevelText = card => card.element(by.css('.hidden-sm-down .capitalize'));
+        this.checkBoxInput = filterOption => filterOption.element(by.css('input'));
+
         this.dropdownList = text => this.filterBox(text).element(by.css('.dropdown-list'));
         this.blueExpander = text => this.card(text).element(by.css('.blue.expander'));
         this.shortDescription = text => this.card(text).element(by.css('.card__expander--summary'));
@@ -71,8 +77,8 @@ class ProgramCatalog {
         return this.searchBar.sendKeys(protractor.Key.BACK_SPACE);
     }
 
-    selectedFilters() {
-        return this.selectedFiltersField.getText();
+    allSelectedFilters() {
+        return this.allSelectedFiltersInTheField.getText();
     }
 
     getResultCounter() {
@@ -196,7 +202,47 @@ class ProgramCatalog {
     }
 
     isResultsLabelVisible() {
-        return this.selector.isVisible();
+        return this.resultsLabel.isVisible();
+    }
+
+    selectSkill(text) {
+        return this.filterOption(text).click();
+    }
+
+    getSelectedItemWrapper() {
+        return this.selectedItemWrapper.getText();
+    }
+
+    isCheckboxSelected() {
+        return this.filterOptions.filter((item) => {
+            return this.checkBoxInput(item).isSelected();
+        }).then(results => {
+            return Promise.all(results.map(item => {
+                return item.getText();
+            }));
+        });
+    }
+
+    isSkillsCoveredSectionContainsTheFilters(filters) { 
+        return this.cards.then(cards => {
+            return Promise.all(cards.map (card => {
+                return this.skillsCoveredSection(card).getText();
+            })).then(result => {
+                return result.every(element => {
+                    let array = makeStringArray(element);
+                    for (let i=0; i<filters.length; i++){
+                        if (array.indexOf(filters[i]) > -1){
+                            return true;
+                        }
+                    }
+                    return false;
+                });
+            });
+        });
+    }
+
+    isEmptySearchTextVisible() {
+        return this.emptyState.isVisible();
     }
 }
 
