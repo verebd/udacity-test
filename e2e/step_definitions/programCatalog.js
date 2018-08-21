@@ -68,15 +68,15 @@ defineSupportCode(({
         });
     });
 
-    Then(/^the "([^"].*)" skill level is selected$/, text => {
+    Then(/^the ([^"].*) skill level is selected$/, text => {
         return ProgramCatalog.clickOnFilter(text);
     });
 
-    Then(/^the "([^"].*)" course level logo should be visible for all cards$/, text => {
-        return expect(ProgramCatalog.areCourseLevelLogosCorrect(text)).to.eventually.be.true;
+    Then(/^the ([^"].*) course level logo should be visible for all cards$/, text => {
+        return expect(ProgramCatalog.areCourseLevelLogosCorrect(text.toLowerCase())).to.eventually.be.true;
     });
 
-    Then(/^the "([^"].*)" course level label should be visible for all cards$/, level => {
+    Then(/^the ([^"].*) course level label should be visible for all cards$/, level => {
         return expect(ProgramCatalog.isCorrectCourseLevelTextVisible(level)).to.eventually.be.true;
     });
 
