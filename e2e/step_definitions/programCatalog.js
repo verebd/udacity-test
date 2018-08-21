@@ -63,7 +63,8 @@ defineSupportCode(({
     });
 
     Then(/^the selected filters field should contain the following filter: "([^"].*)"$/, filter => {
-        return expect(ProgramCatalog.selectedFilter()).to.eventually.equal(filter);
+        let filterArray = convertDataTable(filter);
+        return expect(ProgramCatalog.selectedFilter()).to.eventually.equal(filterArray);
     });
 
     Then(/^the course count should equal to the result counter$/, () => {
@@ -141,5 +142,9 @@ defineSupportCode(({
     Then(/^the cards "Skills Covered" section should contain one of the following filters:$/, filters => {
         let filterArray = convertDataTable(filters);
         return expect(ProgramCatalog.isSkillsCoveredSectionContainsTheFilters(filterArray)).to.eventually.be.true;
+    });
+
+    Then(/^the warning message should be visible$/, () => {
+        return expect(ProgramCatalog.isEmptySearchTextVisible()).to.eventually.be.true;
     });
 });

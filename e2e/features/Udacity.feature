@@ -34,15 +34,15 @@ Scenario Outline: 3. The card details, dropdown filter and filter fields should 
 
    When the "Select Program Details" dropdown is clicked
     And the <level> skill level is selected
-   Then the selected filters field should contain the following filter: <level>
+   Then the selected filters field should contain the following filter:
+        |<level>|
     And the <logoLevel> course level logo should be visible for all cards
     And the <level> course level label should be visible for all cards
 Examples:
-        |     level    |  logoLevel |
+        |     level    |   logoLevel  |
         |  "Beginner"  |  "beginner"  |
         |"Intermediate"|"intermediate"|
         |  "Advanced"  |  "advanced"  |
-
 
 Scenario: 4. The LEARN MORE button and short description should be visible
   Given the Udacity course page is opened
@@ -88,3 +88,12 @@ Scenario: 6. Inspect the filters and the Skills Covered section
         |Android Development|
         |        C++        |
         |        CSS        |
+
+Scenario: 7. The search result list should be empty with a meaningless text in the search bar
+  Given the Udacity course page is opened
+
+   When the text "asdasd" is typed into the search bar
+   Then the course count should equal to the result counter
+    And the warning message should be visible
+    And the selected filters field should contain the following filters:
+        |asdasd|

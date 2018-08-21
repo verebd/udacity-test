@@ -9,9 +9,10 @@ class ProgramCatalog {
         this.bannerCloseButton = element(by.css('.close-btn'));
         this.resultsLabel = element(by.css('.selected-filters'));
         this.selectedFiltersField = element(by.css('.filters'));
+        this.emptyState = element(by.css('.empty-state'));
 
         this.cards = element.all(by.css('.card__inner'));
-        this.AllselectedFiltersInTheField = element.all(by.css('.filters'));
+        this.allSelectedFiltersInTheField = element.all(by.css('.filters'));
         this.selectedItemWrapper = element.all(by.css('.selected-item-wrapper span'));
         this.filterOptions = element.all(by.css('.hidden-sm-down.mb-2 .multiselect-item-checkbox'));
         this.skillsCoveredSection = card => card.all(by.css('.skills .truncate-content span'));
@@ -78,7 +79,7 @@ class ProgramCatalog {
     }
 
     allSelectedFilters() {
-        return this.AllselectedFiltersInTheField.getText();
+        return this.allSelectedFiltersInTheField.getText();
     }
 
     selectedFilter() {
@@ -207,7 +208,6 @@ class ProgramCatalog {
 
     isResultsLabelVisible() {
         return this.resultsLabel.isVisible();
-
     }
 
     selectSkill(text) {
@@ -231,9 +231,7 @@ class ProgramCatalog {
     isSkillsCoveredSectionContainsTheFilters(filters) { 
         return this.cards.then(cards => {
             return Promise.all(cards.map (card => {
-                return this.skillsCoveredSection(card).getText().then(item => {
-                    return item;
-                });
+                return this.skillsCoveredSection(card).getText();
             })).then(result => {
                 return result.every(element => {
                     let array = makeStringArray(element);
@@ -246,6 +244,10 @@ class ProgramCatalog {
                 });
             });
         });
+    }
+
+    isEmptySearchTextVisible() {
+        return this.emptyState.isVisible();
     }
 }
 
